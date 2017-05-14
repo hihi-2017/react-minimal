@@ -26,6 +26,22 @@ function goodbyeTemplate (props) {
   )
 }
 
+function showTask(tasks) {
+  return (
+    <div>
+      <span>Tasks for today</span>
+      <ul>
+        {
+          tasks.map((task) => {
+            return <li>{task.description} : {(task.status === 'done')? "[X]":'[ ]' }</li>
+            }
+          )
+        }
+      </ul>
+    </div>
+  )
+}
+
 var data = { name: 'cici' }
 var sugarCube = {
     person: 'Sugar Cube',
@@ -35,15 +51,24 @@ var sugarCube = {
       suggestion: 'Stay inside, or you will melt!!!'
     }
   }
+var taskData = [
+  {description:'get curry at Great India', status:'not done'},
+  {description:'eat lunch', status:'not done'},
+  {description:'eat dinner', status:'not done'},
+  {description:'take a walk on the waterfront', status:'done'}
+]
 
 var view = helloTemplate(sugarCube)
 var weatherSuggest = weather(sugarCube)
 var endView = goodbyeTemplate(data)
+var viewTask = showTask(taskData)
 
 var header = document.getElementById('root')
 var weather = document.getElementById('weather')
 var footer = document.getElementById('footer')
+var tasks = document.getElementById('tasks')
 
 ReactDOM.render(view, header)
 ReactDOM.render(weatherSuggest, weather)
 ReactDOM.render(endView, footer)
+ReactDOM.render(viewTask,tasks)
