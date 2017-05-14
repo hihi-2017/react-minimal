@@ -1,9 +1,9 @@
 var React = require('react')
 var ReactDOM = require('react-dom')
 
-function helloTemplate (props) {
+function helloTemplate (props, date) {
   return (
-    <div>hello {props.name}</div>
+    <div>hello {props.name} it is {date.date}</div>
   )
 }
 
@@ -13,10 +13,11 @@ function helloDoctor (props) {
   )
 }
 
-var data = { name: 'mix' }
+var date = {date: 'Monday, May 15th, 2017'}
+var data = { name: 'Alan' }
 var footData = {title: 'Dr. Foot', occupation: "Podiatrist"}
 
-var view = helloTemplate(data)
+var view = helloTemplate(data, date)
 var foot = helloDoctor(footData)
 
 var placeToMount = document.getElementById('root')
