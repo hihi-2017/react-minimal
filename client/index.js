@@ -11,9 +11,12 @@ function helloTemplate (props) {
           renderWeather(props)
         }
       </div>
+      <div>{renderMessage(props)}</div>
     </span>
   )
 }
+
+
 function renderWeather (props){
 return (
   <div>
@@ -27,6 +30,7 @@ return (
   </div>
 )
 }
+
 
 function renderFooter () {
   return (
@@ -42,6 +46,22 @@ function renderDate () {
     }</div>
   )
 }
+
+
+function renderMessage (props) {
+    let message = ["Have a great day"]
+
+  return (
+    <span>
+    {(props.weather.temperature < 10)? "Go outside" : "Head inside"}
+    {message.map((msg) => {
+      return <div>{msg} {props.name}</div>
+    })}
+    </span>
+  )
+}
+
+
 
 var data = {
   name: 'Sheryl',
