@@ -19,14 +19,19 @@ npm start
 
 ## Next steps
 
-* Add new mount points and render components into them.
-* Add new components and use them inside existing components.
-* Render complex data structures (objects in objects) as props.
+* Add a new mount point in index.html (e.g. a div with an id of footer) and render a component into it.
+* Add new components and use them inside existing components (e.g. try rendering todays date into the helloTemplate)
+* Render complex data structures (objects in objects) as props. Can you pass in the following object to hello template?
+  ```
+    {
+      person: 'Sugar Cube',
+      weather: {
+        temperature: 15,
+        condition: 'raining',
+        suggestion: 'Stay inside, or you will melt!!!'
+      }
+    }
+  ```
 * Check out the `npm start` script and the `webpack.config.js` file.
 * Conditionally show child components using a ternary operator.
-* Create child components from an array of data using `.map()`.
-
-
-## Wat?
-
-* Why a simple Node server and not `webpack-dev-server`? Students seeing this repo for the first time are proficient with Node/Express. We've chosen to not throw out the concept of client/server even though we admittedly don't need a server here. We introduce `webpack-dev-server` later. Today we just want to focus on React concepts.
+* Create child components from an array of data using `.map()`. Can you display a list of tasks on the page, with each having a description and completed status?
