@@ -3,17 +3,14 @@ var ReactDOM = require('react-dom')
 
 function helloTemplate (props) {
   return (
-    <span>
-    <div>hello {props.name}</div>
-    {dateToday()}
-    </span>
+    <div>{dateToday()} - hello {props.person}!</div>
   )
 }
 
 function dateToday () {
   var d = new Date()
   return (
-    <div>{`${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}`}</div>
+    <span>{`${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}`}</span>
   )
 }
 
@@ -24,7 +21,16 @@ function goodbyeTemplate (props) {
 }
 
 var data = { name: 'cici' }
-var view = helloTemplate(data)
+var sugarCube = {
+    person: 'Sugar Cube',
+    weather: {
+      temperature: 15,
+      condition: 'raining',
+      suggestion: 'Stay inside, or you will melt!!!'
+    }
+  }
+
+var view = helloTemplate(sugarCube)
 var endView = goodbyeTemplate(data)
 
 var header = document.getElementById('root')
