@@ -6,8 +6,26 @@ function helloTemplate (props) {
     <span>
       <div>hello {props.name}</div>
       <div>{renderDate()}</div>
+      <div>
+        {
+          renderWeather(props)
+        }
+      </div>
     </span>
   )
+}
+function renderWeather (props){
+return (
+  <div>
+      {Object.keys(props.weather).map(function(key){
+        return (
+          <div>
+            {key}: {props.weather[key]}
+          </div>
+        )
+      })}
+  </div>
+)
 }
 
 function renderFooter () {
@@ -25,7 +43,15 @@ function renderDate () {
   )
 }
 
-var data = { name: 'Sheryl' }
+var data = {
+  name: 'Sheryl',
+  person: 'Sugar Cube',
+  weather: {
+    temperature: 15,
+    condition: 'raining',
+    suggestion: 'Stay inside, or you will melt!!!'
+  }
+}
 var view = helloTemplate(data)
 var view2 = renderFooter()
 
