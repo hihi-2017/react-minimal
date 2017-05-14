@@ -16,7 +16,7 @@ function footerTemplate (props) {
 }
 function getDate () {
   let currentDate = new Date()
-  console.log(typeof currentDate);
+  // console.log(typeof currentDate);
   return (
     <span> {currentDate.toDateString()} </span>
   )
@@ -31,14 +31,42 @@ function weather(props) {
         The conditons today are: {props.weather.condition}
       </span>
       <span>
-        We suggest you: {props.weather.suggestion}
+        We suggest you
+        {props.weather.condition == 'raining' ? " take your brolly" : " wear a t-shirt"}
       </span>
     </div>
   )
-
 }
 
+function taskList(props) {
+  console.log(props);
+  return (
+    <ul>
+      {props.map((task) => {
+        return <li>Task: {task.task} Status: {task.status}</li>
+      })}
+    </ul>
+  )
+}
 
+var tasks = [
+  {
+    task: 'Buy milk',
+    status: 'Completed'
+  },
+  {
+    task: 'Pay bills',
+    status: 'Completed'
+  },
+  {
+    task: 'Sleep',
+    status: 'Completed'
+  },
+  {
+    task: 'Code',
+    status: 'Completed'
+  }
+]
 
 var personObject = {
     person: 'Sugar Cube',
@@ -52,12 +80,14 @@ var personObject = {
 var data = { name: 'mix' }
 
 var view = helloTemplate(personObject)
-
 var footerView = footerTemplate(personObject)
+var taskView = taskList(tasks)
 
 var placeToMount = document.getElementById('root')
+var taskElements = document.getElementById('tasks')
 var footer = document.getElementById('footer')
 
 
 ReactDOM.render(view, placeToMount)
+ReactDOM.render(taskView, taskElements)
 ReactDOM.render(footerView, footer)
