@@ -3,13 +3,25 @@ var ReactDOM = require('react-dom')
 
 function helloTemplate (props) {
   return (
-    <div>hello {props.name}</div>
+    <span>
+      <div>hello {props.name}</div>
+      <div>{renderDate()}</div>
+    </span>
   )
 }
 
 function renderFooter () {
   return (
     <div>i am a footer</div>
+  )
+}
+
+function renderDate () {
+  return (
+    <div>{((new Date().getMonth()+1) +
+         "/" + new Date().getDate() +
+         "/" + new Date().getFullYear())
+    }</div>
   )
 }
 
