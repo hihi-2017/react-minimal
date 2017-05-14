@@ -3,7 +3,17 @@ var ReactDOM = require('react-dom')
 
 function helloTemplate (props) {
   return (
+    <span>
     <div>hello {props.name}</div>
+    {dateToday()}
+    </span>
+  )
+}
+
+function dateToday () {
+  var d = new Date()
+  return (
+    <div>{`${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}`}</div>
   )
 }
 
