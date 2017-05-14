@@ -12,16 +12,30 @@ function helloTemplate(props) {
         todays date is: {props.day}/{props.month}/{props.year}
       </div>
       <div>
+        {(props.person == "Sugar Cube") ? HelloSugarCube(props) : WhereIsSugarCube(props)}
         todays weather:{props.weather.temperature}, {props.weather.condition}, {props.weather.suggestion}
       </div>
-
-
     </span>
   )
 }
 
+
+function HelloSugarCube(props){
+  return (<p>Sup again, {props.person}</p>)
+}
+
+function WhereIsSugarCube(props){
+  return (<p>Where is my homie, {props.person}</p>)
+}
+
+// function areYouSugarCube(props) {
+//   if (props.person == 'Sugar Cube') return HelloSugarCube(props)
+//   return WhereIsSugarCube(props)
+// }
+
 function renderFooter(props) {
-  return ( <
+  return(
+    <
     h1 > i am a footer < /h1>
   )
 }
@@ -35,7 +49,7 @@ function renderHeader(props) {
 
 
 var data = {
-  name: 'mix, ',
+  name: 'Gabe, ',
   day: new Date().getDate(),
   month: new Date().getMonth(),
   year: new Date().getFullYear(),
