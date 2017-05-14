@@ -2,10 +2,14 @@ var React = require('react')
 var ReactDOM = require('react-dom')
 
 function helloTemplate (props) {
-  console.log(props)
   return (
-    <div>hello {props.person}. Weather today is {props.weather.condition} with a high of {props.weather.temperature}&deg;. {props.weather.suggestion} </div>
+    // <div>hello {props.person}. Weather today is {props.weather.condition} with a high of {props.weather.temperature}&deg;. {props.weather.suggestion} </div>
+    (props.person == 'Sugar Cube') ? <div>{weatherSuggestion(props)}</div> : <div>"Bring an umbrella"</div>
   )
+}
+
+function weatherSuggestion(props) {
+  return <div>{props.weather.suggestion}</div>
 }
 
 var data = {
