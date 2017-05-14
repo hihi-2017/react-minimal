@@ -7,10 +7,18 @@ function helloTemplate (props) {
   )
 }
 
-var data = { name: 'mix' }
+function goodbyeTemplate (props) {
+  return (
+    <div>goodbye {props.name}</div>
+  )
+}
+
+var data = { name: 'cici' }
 var view = helloTemplate(data)
+var endView = goodbyeTemplate(data)
 
-var placeToMount = document.getElementById('root')
+var header = document.getElementById('root')
+var footer = document.getElementById('footer')
 
-ReactDOM.render(view, placeToMount)
-
+ReactDOM.render(view, header)
+ReactDOM.render(endView, footer)
