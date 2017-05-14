@@ -11,6 +11,11 @@ function helloTemplate(props) {
       <div>
         todays date is: {props.day}/{props.month}/{props.year}
       </div>
+      <div>
+        todays weather:{props.weather.temperature}, {props.weather.condition}, {props.weather.suggestion}
+      </div>
+
+
     </span>
   )
 }
@@ -30,8 +35,18 @@ function renderHeader(props) {
 
 
 var data = {
-  name: 'mix, ', day: new Date().getDate(), month: new Date().getMonth(), year: new Date().getFullYear()
+  name: 'mix, ',
+  day: new Date().getDate(),
+  month: new Date().getMonth(),
+  year: new Date().getFullYear(),
+  person: 'Sugar Cube',
+  weather: {
+    temperature: 15,
+    condition: 'raining',
+    suggestion: 'Stay inside, or you will melt!!!'
+  }
 }
+
 var view = helloTemplate(data)
 var footer = renderFooter()
 var header = renderHeader()
