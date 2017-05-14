@@ -7,10 +7,18 @@ function helloTemplate (props) {
   )
 }
 
-var data = { name: 'mix' }
+function renderFooter () {
+  return (
+    <div>i am a footer</div>
+  )
+}
+
+var data = { name: 'Sheryl' }
 var view = helloTemplate(data)
+var view2 = renderFooter()
 
 var placeToMount = document.getElementById('root')
+var placeNextToMount = document.getElementById('footer')
 
 ReactDOM.render(view, placeToMount)
-
+ReactDOM.render(view2, placeNextToMount)
