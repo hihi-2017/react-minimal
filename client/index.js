@@ -12,6 +12,7 @@ function helloTemplate (props) {
         }
       </div>
       <div>{renderMessage(props)}</div>
+
     </span>
   )
 }
@@ -61,6 +62,22 @@ function renderMessage (props) {
   )
 }
 
+function renderTasks (tasks){
+  var filteredTasks = tasks.filter(function(item){
+    return item.status == 'incomplete'
+  })
+  return(
+    <span>
+
+                {filteredTasks.map(function(task){
+                  return <div>{task.description} : {task.status} </div>
+                })}
+
+
+    </span>
+  )
+
+}
 
 
 var data = {
@@ -72,11 +89,30 @@ var data = {
     suggestion: 'Stay inside, or you will melt!!!'
   }
 }
+
+var tasks = [
+  {
+    description: 'Eat Breakfast',
+    status: 'completed'
+  },
+  {
+    description: 'Eat Lunch',
+    status: 'incomplete'
+  },
+  {
+    description: 'Eat dinner',
+    status: 'incomplete'
+  }
+]
+
 var view = helloTemplate(data)
 var view2 = renderFooter()
+var toDo = renderTasks(tasks)
 
 var placeToMount = document.getElementById('root')
 var placeNextToMount = document.getElementById('footer')
+var placeToDo = document.getElementById('toDo')
 
 ReactDOM.render(view, placeToMount)
 ReactDOM.render(view2, placeNextToMount)
+ReactDOM.render(toDo, placeToDo)
