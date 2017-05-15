@@ -6,19 +6,34 @@ function helloTemplate(props) {
   return (
     <span>
       <div>
-        hello {props.name}
+        Hello {props.name}
       </div>
       <div>
-        todays date is: {props.day}/{props.month}/{props.year}
+        Todays date is: {props.day}/{props.month}/{props.year}
       </div>
       <div>
         {(props.person == "Sugar Cube") ? HelloSugarCube(props) : WhereIsSugarCube(props)}
-        todays weather:{props.weather.temperature}, {props.weather.condition}, {props.weather.suggestion}
+        Todays weather:{props.weather.temperature}, {props.weather.condition}, {props.weather.suggestion}
       </div>
+      <div><p>
+      Todays task: {displayTasks(props.tasks)}
+      </p></div>
     </span>
   )
 }
 
+//Josh's bit
+  // <p>Todays Task: {
+  //   props.tasks.map((task) => displayTask(task))
+  // }</p>
+
+function displayTasks(tasks) {
+  return tasks.map(displayTask)
+}
+
+function displayTask(task){
+  return (<ul> {task.title}, <li>    {task.description}, <li>    {task.Status}</li></li></ul>)
+}
 
 function HelloSugarCube(props){
   return (<p>Sup again, {props.person}</p>)
@@ -33,32 +48,29 @@ function WhereIsSugarCube(props){
 //   return WhereIsSugarCube(props)
 // }
 
-function renderFooter(props) {
-  return(
-    <
-    h1 > i am a footer < /h1>
-  )
+function renderFooter(props){
+    return(<h1> i am a footer </h1>)
 }
 
-function renderHeader(props) {
-  return ( <
-    h1 > i am a header < /h1>
-  )
+function renderHeader(props){
+  return ( <h1> i am a header </h1>)
 }
-
 
 
 var data = {
-  name: 'Gabe, ',
+  name: 'Mr Wizard, ',
   day: new Date().getDate(),
-  month: new Date().getMonth(),
-  year: new Date().getFullYear(),
-  person: 'Sugar Cube',
+  month: new Date().getMonth()+1,
   weather: {
     temperature: 15,
     condition: 'raining',
     suggestion: 'Stay inside, or you will melt!!!'
-  }
+  },
+  tasks: [
+    {title: '1: Make coffee sweet', description: 'Dip in toes - only', Status: 'I got soggy'},
+    {title:'2. Remain cubical', description: 'Stay out of coffee', Status: 'Dry and happy'},
+    {title: '3. Feed horses', description: 'Not looking forward to this', Status: 'Cancelled til tomorrow'}
+  ]
 }
 
 var view = helloTemplate(data)
