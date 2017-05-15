@@ -9,15 +9,11 @@ function helloTemplate (props) {
     {props.day}/{props.month}/{props.year}<br />
   <p>
     {props.weather === 'sunny' ? 'time for a walk.':'time to stay inside'}
-
-
     {
       props.tasks.map ((task)=> {
-        return <div> {task.task} / {task.completed.toString()}</div>
+        return <div> {task.task} / {task.description} / {task.completed.toString()}  </div>
       })
   }
-
-
   </p>
     </div>
   )
@@ -31,16 +27,14 @@ function getFooter (footer) {
 }
 
 
-
-
-
-
 var data = { name: 'mix', person: 'Sugar Cube', weather: 'sunny', temperature: 15, condition:'raining', suggestion: 'Stay inside, or you will melt!!!', day: new Date().getDate(), month: new Date().getMonth()+1, year: new Date().getFullYear(), tasks:
   [
-  {task:'make a list', completed: false},
-  {task:'make coffee', completed: true},
-  {task:'drink coffee',completed: false}
+  {task:'Make a list', completed: false, description:'Make a list of lists for making lists'},
+  {task:'Make coffee', completed: true, description:'Make a coffe that taste better than life itself'},
+  {task:'Drink coffee',completed: false, description:'Drink the said coffee'}
 ]}
+
+
 var view = helloTemplate(data)
 var footer = getFooter()
 
