@@ -1,14 +1,27 @@
 var React = require('react')
 var ReactDOM = require('react-dom')
+var Greetings = require('./greetings')
+var Tasks = require('./tasks')
 
-function helloTemplate (props) {
+function HelloComponent (props) {
   return (
-    <div>hello {props.name}</div>
+    <span>
+      <Tasks tasks={props.tasks}/>
+      <div>testing </div>
+      <div><Greetings name={props.name} a="lb" /></div>
+    <div className='bob' width='100'></div>
+    </span>
   )
 }
 
-var data = { name: 'mix' }
-var view = helloTemplate(data)
+var data = {
+  name: 'hihi',
+  tasks: [
+    {description: 'dance', completed: true},
+    {description: 'sing', completed: false}
+  ]
+}
+var view = HelloComponent(data)
 
 var placeToMount = document.getElementById('root')
 
